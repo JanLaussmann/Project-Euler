@@ -11,5 +11,5 @@ sieve (a:as) b = sieve c (a:b)
 
 
 main :: IO ()
-main = putStrLn . show . (!! 9999) . reverse $ sieve [3,5..150000] []
+main = putStrLn . show . (!! 10000) . reverse $ sieve [3,5..150000] [2]
 
