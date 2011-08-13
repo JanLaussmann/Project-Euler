@@ -4,12 +4,8 @@
 
 module Main where
 
-sieve :: [Int] -> [Int] -> [Int]
-sieve []     b = b
-sieve (a:as) b = sieve c (a:b)
-  where c = [x | x <- as, x `rem` a /= 0]
-
+sieve :: [Int] -> [Int]
+sieve (x:xs) = x : sieve [y | y <- xs, y `rem` x > 0] 
 
 main :: IO ()
-main = putStrLn . show . (!! 10000) . reverse $ sieve [3,5..150000] [2]
-
+main = putStrLn . show . (!! 10000) $ sieve [2..]
